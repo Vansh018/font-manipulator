@@ -1,3 +1,9 @@
+noseX = 0;
+noseY = 0;
+difference = 0;
+rightWristX = 0;
+leftWristY = 0;
+
 function setup(){
     video = createCapture(VIDEO);
     video.size(550, 500);
@@ -7,4 +13,20 @@ function setup(){
 
     poseNet = ml5.poseNet(video, modelLoaded);
     poseNet.on('pose', gotPoses);
+}
+
+function draw(){
+    background("red");
+}
+
+function modelLoaded(){
+    console.log("PoseNet Is Initialized");
+}
+
+function gotPoses(results){
+    if(results.length > 0)
+    {
+        console.log(results);
+        
+        }
 }
