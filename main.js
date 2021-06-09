@@ -17,6 +17,10 @@ function setup(){
 
 function draw(){
     background("red");
+    textSize(difference);
+    fill(0, 102, 153);
+    text("Font", 50, 300);
+   
 }
 
 function modelLoaded(){
@@ -27,6 +31,13 @@ function gotPoses(results){
     if(results.length > 0)
     {
         console.log(results);
+        
+
+        leftWristX = results[0].pose.leftWrist.x;
+        rightWristX = results[0].pose.rightWrist.x;
+        difference = floor(leftWristX - rightWristX);
+
+        console.log("leftwristX = " + leftWristX + " rightwristX = "+ rightWristX + "difference = " + difference);
         
         }
 }
